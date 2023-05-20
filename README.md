@@ -24,7 +24,7 @@ and support for Arc is added.
 
 ## Installation
 
-1. Download the Alfred Workflow ([Browser-Tabs.alfredworkflow](https://github.com/akaralar/alfred-browser-tabs/releases/latest/download/Browser-Tabs.alfredworkflow)).
+1. Download the Alfred Workflow ([Browser-Tabs.alfredworkflow](https://github.com/akaralar/alfred-browser-tabs/raw/main/Browser-Tabs.alfredworkflow)).
 1. Double-click to import into Alfred (requires Powerpack).
 1. Review workflow, add hotkeys, customize.
 
@@ -45,4 +45,4 @@ Holding the `CTRL` key while selecting an item will copy the selected tab URL to
 
 ## License
 
-[MIT License]()
+[MIT License](https://github.com/akaralar/alfred-browser-tabs/blob/main/LICENSE)
