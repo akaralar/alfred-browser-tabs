@@ -15,14 +15,16 @@ function run(args) {
 
   let arc = Application(browser);
   arc.includeStandardAdditions = true;
-  let windowCount = arc.windows.length;
+
   let tabsMap = {};
 
-  for (let w = 0; w < windowCount; w++) {
+  for (let w = 0; w < arc.windows.length; w++) {
     let window = arc.windows[w];
+
     for (let s = 0; s < window.spaces.length; s++) {
-      let space = arc.windows[w].spaces[s]
+      let space = arc.windows[w].spaces[s];
       let spaceName = space.title();
+
       for (let t = 0; t < space.tabs.length; t++) {
         let tab = space.tabs[t];
         let url = tab.url() || "";
@@ -31,10 +33,20 @@ function run(args) {
         let tabID = tab.id();
 
         let subtitle = "";
-        if (tab.location() === "pinned") {
-          subtitle = spaceName + " 📌 | " + url;
+        let subtitlePrefix = "";
+
+        if (window.incognito()) {
+          subtitlePrefix = "Incognito Window"
+        } else if (spaceName.length <= 0) {
+          subtitlePrefix = "Space " + s
         } else {
-          subtitle = spaceName + " | " + url;
+          subtitlePrefix = spaceName
+        }
+
+        if (tab.location() === "pinned") {
+          subtitle = subtitlePrefix + " 📌 | " + url;
+        } else {
+          subtitle = subtitlePrefix + " | " + url;
         }
 
         tabsMap[tabID] = {
